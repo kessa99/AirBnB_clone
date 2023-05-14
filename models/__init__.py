@@ -2,8 +2,8 @@
 """
 initializes the models folder
 """
-from models.engine.file_storage import file_storage
+from models.engine.file_storage import FileStorage
 
 
-storage = file_storage()
+storage = FileStorage()
 storage.reload()
