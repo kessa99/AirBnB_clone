@@ -39,7 +39,7 @@ Thus, __file_path will be used to store the serialized data in a JSON file, usin
         """
         serialisation of content
         """
-        withopen(self.__file_path, 'W') as f:
+        with open(self.__file_path, 'W') as f:
             obj_dict = {key:obj.to_dict() for key, obj in self.__objects.items()}
             json.dump(obj_dict,f)
     

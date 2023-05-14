@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+import file_storage
 
 """
 this constructor defines the id attributea and some methods
