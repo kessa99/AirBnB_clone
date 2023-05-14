@@ -11,7 +11,7 @@ from models.review import Review # noqa
 
 
 class FileStorage:
-    """Represent an abstracted storage engine.
+    """This represent an abstracted storage engine.
 
     Attributes:
         __file_path (str): The path to the file where objects are stored.
@@ -21,7 +21,7 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """Retrieve all objects.
+        """Recover all objects.
 
         Returns:
             dict: A dictionary of all objects.
