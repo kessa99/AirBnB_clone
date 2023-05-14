@@ -2,7 +2,7 @@
 """
 initializes the models folder
 """
-from models.engine.file_storage import FileStorage
+from models.engine.FileStorage import FileStorage
 
 
 storage = FileStorage()
