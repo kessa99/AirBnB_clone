@@ -7,10 +7,28 @@ this constructor defines the id attributea and some methods
 """
 
 class BaseModel:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+
         self.id = str(uuid.uuid4())
+        """Initializes a new BaseModel.
+
+        Args:
+            *args: Unused positional arguments.
+            **kwargs: Key/value pairs of attributes.
+        """
+        time_format = "%Y, %M, %dT, %H:%M:%S.%f"
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        if kwargs:
+            for key, value in kwargs.data():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value,
+                            time_format)
+                else:
+                    models.storage.new(self)
 
     def str(self):
+
         """
         We have to print the initialized information information
         for printing the name of the class, we have two choices:
@@ -26,6 +44,8 @@ class BaseModel:
         """
         self.created_at = datatime.now()
         self.updated_at = datetime.now()
+        models.storage.save()
+
 
 
 
@@ -34,12 +54,8 @@ class BaseModel:
         The isoformat is use to print with precesion time.
         """
         
-        my_dict = self.dict.copy()
+        my_dict = self.__dict__.copy()
         my_dict['class'] = self.__classname__
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['update_at'] = self.updated_at.isoformat()
         return my_dict
-
-
-
-
