@@ -1,6 +1,9 @@
-from models.engine.file_storage import FileStorage
-"""creat a uniq insatance FIleStore"""
-storage = FileStorage()
+#!/usr/bin/python3
+"""
+initializes the models folder
+"""
+from models.engine.FileStorage import FileStorage
 
-"""Load since JSON file"""
+
+storage = FileStorage()
 storage.reload()

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import models
 import uuid
 from datetime import datetime
 import file_storage
@@ -8,12 +9,31 @@ this constructor defines the id attributea and some methods
 """
 
 class BaseModel:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def __str__(self):
+        """Initializes a new BaseModel.
+
+        Args:
+            *args: Unused positional arguments.
+            **kwargs: Key/value pairs of attributes.
+        """
+        time_format = "%Y, %M, %dT, %H:%M:%S.%f"
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        if kwargs:
+            for key, value in kwargs.data():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value,
+                            time_format)
+                else:
+                    models.storage.new(self)
+
+    def str(self):
         """
         We have to print the initialized information information
         for printing the name of the class, we have two choices:
@@ -28,6 +48,8 @@ class BaseModel:
         update the public instance attribute
         """
         self.updated_at = datetime.now()
+        models.storage.save()
+
 
 
 
@@ -41,7 +63,3 @@ class BaseModel:
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['update_at'] = self.updated_at.isoformat()
         return my_dict
-
-
-
-
