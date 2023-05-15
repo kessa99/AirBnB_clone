@@ -2,6 +2,7 @@
 import models
 import uuid
 from datetime import datetime
+import file_storage
 
 """
 this constructor defines the id attributea and some methods
@@ -11,6 +12,10 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
 
         self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+
+    def __str__(self):
         """Initializes a new BaseModel.
 
         Args:
@@ -29,21 +34,19 @@ class BaseModel:
                     models.storage.new(self)
 
     def str(self):
-
         """
         We have to print the initialized information information
         for printing the name of the class, we have two choices:
-        1- class_name = self.__class__.name and call for format(class__name__)
-        2- format(type(self).name)
+        1- class_name = self.__class__.__name__ and call for format(class__name__)
+        2- format(type(self).__name__)
         dict: it automatically transform the initialized element into dictionary
         """
-        return "[{}] ({}) {}".format(type(self).name, self.id, self.dict)
+        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.dict)
 
     def save(self):
         """
         update the public instance attribute
         """
-        self.created_at = datatime.now()
         self.updated_at = datetime.now()
         models.storage.save()
 
@@ -56,7 +59,7 @@ class BaseModel:
         """
         
         my_dict = self.__dict__.copy()
-        my_dict['class'] = self.__classname__
+        my_dict['class'] = type(self).__name__
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['update_at'] = self.updated_at.isoformat()
         return my_dict
