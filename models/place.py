@@ -2,7 +2,7 @@
 from models.base_model import BaseModel
 
 class Place(BaseModel):
-    """Represents a place.
+    """Signify a place.
 
     Attributes:
         city_id: string-empty string

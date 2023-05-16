@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-initializes the models folder
+initializes the models folder.
 """
 import file_storage
 
