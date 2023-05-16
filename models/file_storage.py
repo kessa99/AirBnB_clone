@@ -10,9 +10,8 @@ The former must be a string representing the path to the JSON file in which the 
  -initialize the __file_path attribute with the path to the JSON file using 
  os.path.abspath(os.path.dirname(__file__)) to get the absolute path of the current directory and the file name file.json.
 """
-from models.base_model import BaseModel
 import json
-import os.path
+from os.path import os
 
 class FileStorage:
     """
@@ -39,18 +38,13 @@ Thus, __file_path will be used to store the serialized data in a JSON file, usin
         """
         serialisation of content
         """
-        with open(self.__file_path, 'W') as f:
+        with open(self.__file_path, 'W', encoding='utf-8') as f:
             obj_dict = {key:obj.to_dict() for key, obj in self.__objects.items()}
-            json.dump(obj_dict,f)
+            json.dump(obj_dict, f)
     
     def reload(self):
-        try:
+        if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as f:
-                obj_dict = json.load(f)
-                for obj_id, obj_dict in obj_dict.items():
-                    cls_name = obj_dict.pop('__class__', None)
-                    if cls_name and cls_name in BaseModel.__subclasses__():
-                        obj = BaseModel.__subclasses__()[cls_name](**obj_dict)
-                        self.__objects[obj_id] = obj
-        except FileNotFoundError:
-            pass
+                self.__objects = json.load(f)
+                for value in self.__objects.values():
+                    del value['__class__']
