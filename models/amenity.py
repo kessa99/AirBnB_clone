@@ -4,7 +4,13 @@ from models.base_model import BaseModel
 
 class Amenity(BaseModel):
     """
-        name: The name of the amenity is an str
-    """
+    This  denotes an amenity.
+
+    
+    Attributes:
+     name (str): The name of the amenity.
+
+     """
+        
 
     name = ""
