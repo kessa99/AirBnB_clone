@@ -1,2 +1,1 @@
-0x00. AirBnB clone - The console(team project)
-
+0x00. AirBnB clone - The console(team project).
