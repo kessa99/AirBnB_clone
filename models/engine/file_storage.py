@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-"""This eefines the FileStorage class."""
+#!/usr/bin/python3i
+"""Defines the FileStorage class."""
 import json
 from models.base_model import BaseModel  # noqa
 from models.user import User  # noqa
