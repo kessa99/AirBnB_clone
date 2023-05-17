@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-initializes the models folder.
-"""
-import file_storage
+"""Initialize the models directory"""
+from models.engine.file_storage import FileStorage
 
-FileStorage = file_storage.FileStorage
+
 storage = FileStorage()
 storage.reload()
