@@ -1,51 +1,53 @@
 #!/usr/bin/python3
-import uuid
+"""This defines the BaseModel class."""
+import models
+from uuid import uuid4
 from datetime import datetime
 
+
 class BaseModel:
-    """
-    constructeur
-    """
+    """Represents the base model of the HBnB project."""
+
     def __init__(self, *args, **kwargs):
+        """Initializes a new BaseModel.
+
+        Args:
+            *args: Unused positional arguments.
+            **kwargs: Key/value pairs of attributes.
+        """
+        timestamp_format = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if kwargs:
             for key, value in kwargs.items():
-                if key in ('created_at', 'updated_at'):
-                    value = datetime.strftime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                if key != '__class__':
-                    setattr(self, key, value)
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(
+                            value, timestamp_format)
+                else:
+                    self.__dict__[key] = value
         else:
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
             models.storage.new(self)
 
-    def __str__(self):
-        """
-        We have to print the initialized information information
-        for printing the name of the class, we have two choices:
-        1- class_name = self.__class__.__name__
-        and caller format(class__name__)
-        2- format(type(self).__name__)
-        dict: it automatically transform
-        the initialized element into dictionary
-        """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                self.id, self.__dict__)
-
     def save(self):
-        """
-        update the public instance attribute
-        models.storage.save()
-        """
-        self.updated_at = datetime.now()
+        """Updates the 'updated_at' attribute with
+        the current datetime and save the model."""
+        self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
-        """Return a dictionary contianing all keys/values.
-        The isoformat is use to print with precesion time.
-        """
+        """Return a dictionary representation of the BaseModel instance.
 
-        my_dict = self.__dict__.copy()
-        my_dict['__class__'] = self.__class__.__name__
-        my_dict['created_at'] = self.created_at.isoformat()
-        my_dict['update_at'] = self.updated_at.isoformat()
-        return my_dict
+        Includes the key/value pair '__class__' representing
+        the class name of the object.
+        """
+        result = self.__dict__.copy()
+        result["created_at"] = self.created_at.isoformat()
+        result["updated_at"] = self.updated_at.isoformat()
+        result["__class__"] = self.__class__.__name__
+        return result
+
+    def __str__(self):
+        """Return the string representation of the BaseModel instance."""
+        class_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
