@@ -13,8 +13,6 @@ from models.amenity import Amenity  # noqa
 from models.review import Review  # noqa
 
 
-
-
 def parse(arg):
     """analize the argument string and extract specific patterns.
 
