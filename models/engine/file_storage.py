@@ -41,8 +41,7 @@ class FileStorage:
         """Save the objects to the file in JSON format."""
 
         obj_dict = FileStorage.__objects
-        obj_dic = {obj: obj_dict[obj].to_dict()
-                for obj in obj_dict.keys()}
+        obj_dic = {obj: obj_dict[obj].to_dict() for obj in obj_dict.keys()}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(obj_dic, f)
 
