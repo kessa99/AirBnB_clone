@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+"""Defines the Place class."""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
-    """Signify a place class.
+    """Represents a place.
 
     Attributes:
         city_id (str): The ID of the associated City.
