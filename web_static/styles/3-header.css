@@ -4,8 +4,3 @@ header {
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
 }
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
