@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--C'est dans ce head que les elements de base sont mis ou encore la liaison avec les ficlier css-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb Web-static</title>
+    <link rel="stylesheet" href="styles/4-common.css" />
+    <link rel="stylesheet" href="styles/3-header.css" />
+    <link rel="stylesheet" href="styles/3-footer.css" />
+    <link rel="stylesheet" href="styles/6-filters.css" />
+    <link rel="stylesheet" href="styles/7-places.css" />
+</head>
+
+<!--Ceci est le corps-->
+
+<body>
+
+    <!--The header iss like the nav bar where we will see the elements like the menu for some sites where the logo is-->
+
+    <header>
+        <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/268/logo.png">
+    </header>
+
+    <!--le containeur ou le main-->
+
+    <div class="container">
+        <section class="filters">
+            <div class="locations">
+
+                <!--Here we can see the first text in the main-->
+
+                <h3 class="titre">States</h3>
+                <h4 class="sous-titre">welcome</h4>
+
+                <!--Time to go with dropdawn-->
+
+                <ul class="popover">
+                    <li>
+                        <h2>Yamoussoukro</h2>
+                        <ul class="sous-titre-popover">
+                            <li>MOROFE</li>
+                            <li>Camp</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Abidjan</h2>
+                        <ul class="sous-titre-popover">
+                            <li>Plateau</li>
+                            <li>Macori</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="amenities">
+
+                <!--Here we can see the first text in the main-->
+
+                <h3 class="titre">Amenities</h3>
+                <h4 class="sous-titre">welcome</h4>
+
+                <!--Time to go with dropdawn-->
+
+                <ul class="popover">
+                    <li>TV</li>
+                    <li>TRUC1</li>
+                    <li>truc2</li>
+                    <li>truc3</li>
+                </ul>
+            </div>
+            <button>Search</button>
+        </section>
+        <section class="places">
+            <h1>Places</h1>
+            <article>
+                <h2>My Home</h2>
+            </article>
+            <article>
+                <h2>Tiny House</h2>
+            </article>
+            <article>
+                <h2>A suite</h2>
+            </article>
+        </section>
+    </div>
+
+    <!--The footer-->
+
+    <footer>
+        <p> Best School</p>
+    </footer>
+</body>
+
+</html>
