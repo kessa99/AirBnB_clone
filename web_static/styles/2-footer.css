@@ -1,5 +1,7 @@
-footer
-{
+footer {
+    /*
+        Here we can put css elements of css that will act on the html through the link
+     */
     background-color: #00FF00;
     height: 60px;
     width: 100%;

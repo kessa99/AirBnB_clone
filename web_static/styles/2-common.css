@@ -1,5 +1,7 @@
-body
-{
+body {
+    /*
+        Here we can put css elements of css that will act on the html through the link
+     */
     margin: 0;
     padding: 0;
 }
