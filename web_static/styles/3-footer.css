@@ -3,10 +3,10 @@ footer {
         Here we can put css elements of css that will act on the html through the link
      */
     background-color: white;
-    height: 70px;
+    height: 50px;
     width: 100%;
     text-align: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    border-bottom: 1px #CCCCCC solid;
+    border-top: 1px #CCCCCC solid;
 }
