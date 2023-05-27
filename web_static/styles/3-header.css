@@ -2,15 +2,6 @@ header {
     background-color: white;
     height: 70px;
     width: 100%;
-<<<<<<< HEAD
-    border-bottom: 1px solid #CCCCCC; 
+    background-image: url('../images/logo.png') no-repeat;
+    border-bottom: 1px #CCCCCC solid;
 }
-.logo-container
-{
-    display: flex;
-    align-items: center;
-}
-=======
-    border-bottom: 1px solid #CCCCCC;
-}
->>>>>>> 22b40fdb15a9b8c49c1fb11a04fd560c88ca5e77
