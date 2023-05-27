@@ -1,3 +1,8 @@
+/* 
+    le filter regroupe les div et le buttons, il permet de les placer comme
+    bon le semble.
+*/
+
 .filters {
     background-color: #FFFFFF;
     height: 70px;
@@ -24,11 +29,18 @@ button:hover {
     opacity: 0.9;
 }
 
+
+/* 
+    nous allons parler au niveau de la locations puis amenities
+*/
+
 .locations {
     height: 100%;
     width: 25%;
     border-right: #DDDDDD 1px;
-    margin-right: 0;
+    margin-right: 50px;
+    border-right: 1px #DDDDDD solid;
+    padding-right: 30px;
 }
 
 .amenities {
@@ -37,6 +49,12 @@ button:hover {
     border-right: #DDDDDD 1px;
     margin-right: auto;
 }
+
+
+/*
+    Nous allons maintenant attaquer l'interieur de ces deux div qui son location et amenities
+    qui grace au classe "titre" et "sous-titre" permet de faire une le travail en une seul fois.
+*/
 
 .titre {
     font-weight: 600;
